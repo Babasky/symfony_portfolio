@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: symfony-app
+    env: docker
+    plan: free
+    branch: main
+    repo: https://github.com/Babasky/symfony_portfolio.git
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: prod
+      - key: APP_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: symfony-db
+          property: connectionString
+
+databases:
+  - name: symfony-db
+    databaseName: symfony
+    user: symfony
