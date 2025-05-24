@@ -1,0 +1,20 @@
+<footer class="bg-gray-800 text-white py-8">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex flex-col md:flex-row justify-between items-center">
+			<div class="mb-4 md:mb-0">
+				<a href="#" class="text-xl font-bold">Portfolio</a>
+				<p class="text-gray-400 mt-2">© 2023 Mon Portfolio. Tous droits réservés.</p>
+			</div>
+
+			<div class="flex space-x-6">
+			{% if socials is defined and socials is not empty %}
+				{% for social in socials %}
+					<a href="{{ social.link }}" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+						<i class="{{ social.icon }}"></i>
+					</a>
+				{% endfor %}
+			{% endif %}
+			</div>
+		</div>
+	</div>
+</footer>
