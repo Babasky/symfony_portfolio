@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Tech;
+use App\Entity\User;
 use App\Entity\About;
 use App\Entity\Outil;
 use App\Entity\Skill;
@@ -68,5 +69,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Contact info', 'fas fa-list', InformationContact::class);
         yield MenuItem::linkToCrud('Réseaux sociaux', 'fas fa-list', SocialNetwork::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-phone', Contact::class);
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
     }
 }
