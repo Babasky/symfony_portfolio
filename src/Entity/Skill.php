@@ -25,7 +25,7 @@ class Skill
     /**
      * @var Collection<int, Tech>
      */
-    #[ORM\OneToMany(targetEntity: Tech::class, mappedBy: 'skill')]
+    #[ORM\ManyToMany(targetEntity: Tech::class, inversedBy: 'skills')]
     private Collection $technologies;
 
     public function __construct()
@@ -62,6 +62,13 @@ class Skill
         return $this;
     }
 
+    
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     /**
      * @return Collection<int, Tech>
      */
@@ -74,7 +81,6 @@ class Skill
     {
         if (!$this->technologies->contains($technology)) {
             $this->technologies->add($technology);
-            $technology->setSkill($this);
         }
 
         return $this;
@@ -82,18 +88,8 @@ class Skill
 
     public function removeTechnology(Tech $technology): static
     {
-        if ($this->technologies->removeElement($technology)) {
-            // set the owning side to null (unless already changed)
-            if ($technology->getSkill() === $this) {
-                $technology->setSkill(null);
-            }
-        }
+        $this->technologies->removeElement($technology);
 
         return $this;
-    }
-
-    public function __toString(): string
-    {
-        return $this->name;
     }
 }

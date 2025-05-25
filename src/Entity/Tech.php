@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TechRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TechRepository::class)]
@@ -19,8 +21,17 @@ class Tech
     #[ORM\Column(length: 255)]
     private ?string $pourcentage = null;
 
-    #[ORM\ManyToOne(inversedBy: 'technologies')]
-    private ?Skill $skill = null;
+    /**
+     * @var Collection<int, Skill>
+     */
+    #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'technologies')]
+    private Collection $skills;
+
+    public function __construct()
+    {
+        $this->skills = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -51,19 +62,35 @@ class Tech
         return $this;
     }
 
-    public function getSkill(): ?Skill
-    {
-        return $this->skill;
-    }
-
-    public function setSkill(?Skill $skill): static
-    {
-        $this->skill = $skill;
-
-        return $this;
-    }
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection<int, Skill>
+     */
+    public function getSkills(): Collection
+    {
+        return $this->skills;
+    }
+
+    public function addSkill(Skill $skill): static
+    {
+        if (!$this->skills->contains($skill)) {
+            $this->skills->add($skill);
+            $skill->addTechnology($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSkill(Skill $skill): static
+    {
+        if ($this->skills->removeElement($skill)) {
+            $skill->removeTechnology($this);
+        }
+
+        return $this;
     }
 }

@@ -22,7 +22,7 @@ class TechCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
             TextField::new('pourcentage'),
-            AssociationField::new('skill'),
+            AssociationField::new('skills'),
         ];
     }
 

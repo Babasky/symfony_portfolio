@@ -10,7 +10,7 @@
 				<div class="space-y-4 mb-8">
                     {% if experiences is defined and experiences is not empty %}
                         {% for experience in experiences %}
-                        <div class="flex items-start items-center">
+                        <div class="flex items-start">
                             <div class="flex-shrink-0 mt-1">
                                 <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                                     <i class="fas fa-check text-blue-500"></i>
@@ -24,7 +24,7 @@
                     {% endif %}
 				</div>
 
-				<a href="#" class="contact-btn inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-md">
+				<a href="#" target="_blank" class="contact-btn inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-md">
 					<i class="fas fa-download mr-2"></i>
 					Télécharger mon CV
 				</a>
