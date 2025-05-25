@@ -80,14 +80,6 @@ final class Version20250525110122 extends AbstractMigration
         $this->addSql(<<<'SQL'
             ALTER TABLE skill_tech ADD CONSTRAINT FK_C1FDACA064727BFC FOREIGN KEY (tech_id) REFERENCES tech (id) ON DELETE CASCADE
         SQL);
-        $this->addSql(<<<'SQL'
-                CREATE TABLE sessions (
-                sess_id VARCHAR(128) NOT NULL PRIMARY KEY,
-                sess_data LONGBLOB NOT NULL,
-                sess_time INT UNSIGNED NOT NULL,
-                sess_lifetime INT UNSIGNED NOT NULL
-            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
-        SQL);
     }   
 
     public function down(Schema $schema): void
