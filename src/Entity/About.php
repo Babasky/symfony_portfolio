@@ -24,7 +24,7 @@ class About
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $cv = null;
 
-    #[Vich\UploadableField(mapping: 'cv_file', fileNameProperty: 'cvFile')]
+   #[Vich\UploadableField(mapping: 'cv_file', fileNameProperty: 'cv')]
     private ?File $cvFile = null;
 
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]

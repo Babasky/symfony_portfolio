@@ -28,7 +28,7 @@ class AboutCrudController extends AbstractCrudController
           Field::new('cvFile')
             ->setFormType(VichFileType::class)
             ->setLabel('Curriculum Vitae (PDF)')
-            ->setRequired($pageName === Crud::PAGE_NEW)
+            ->setRequired(false)
             ->onlyOnForms(),
             TextField::new('cv')
                 ->setLabel('Nom du fichier')

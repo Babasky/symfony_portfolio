@@ -23,16 +23,17 @@
                         {% endfor %}
                     {% endif %}
 				</div>
+				{% if about.cv is defined and about.cv is not empty %}
+					<a href="{{ asset('uploads/cv/' ~ about.cv) }}" target="_blank" class="contact-btn inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-md">
+						<i class="fas fa-download mr-2"></i>
+						Télécharger mon CV
+					</a>
+				{% endif %}
+				</div>
 
-				<a href="#" target="_blank" class="contact-btn inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-md">
-					<i class="fas fa-download mr-2"></i>
-					Télécharger mon CV
-				</a>
-			</div>
-
-			<div class="md:w-1/2 md:pl-12 animate-fadeIn" style="animation-delay: 0.3s;">
-				<div class="bg-gray-50 p-8 rounded-lg">
-					<h3 class="text-xl font-semibold text-gray-800 mb-6">Mon Parcours</h3>
+				<div class="md:w-1/2 md:pl-12 animate-fadeIn" style="animation-delay: 0.3s;">
+					<div class="bg-gray-50 p-8 rounded-lg">
+						<h3 class="text-xl font-semibold text-gray-800 mb-6">Mon Parcours</h3>
 
 					<div class="space-y-8">
 						{% if parcours is defined and parcours is not empty %}
