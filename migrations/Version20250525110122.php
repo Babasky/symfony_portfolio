@@ -86,9 +86,9 @@ final class Version20250525110122 extends AbstractMigration
                 sess_data BLOB NOT NULL,
                 sess_time INTEGER UNSIGNED NOT NULL,
                 sess_lifetime INT UNSIGNED NOT NULL,
-            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+            )
         SQL);
-    }
+    }   
 
     public function down(Schema $schema): void
     {
