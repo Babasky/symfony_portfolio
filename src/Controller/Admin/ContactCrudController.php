@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 
 class ContactCrudController extends AbstractCrudController
 {
@@ -22,9 +23,9 @@ class ContactCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
+            IdField::new('id')->hideOnForm()->hideOnDetail()->hideOnIndex(),
             TextField::new('fullname')->setLabel('Full Name'),
-            TextField::new('email')->setLabel('Email'),
+            EmailField::new('email')->setLabel('Email'),
             TextField::new('subject')->setLabel('Subject'),
             TextEditorField::new('message')->setLabel('Message'),
         ];

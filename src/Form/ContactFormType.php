@@ -21,7 +21,7 @@ class ContactFormType extends AbstractType
                 'row_attr' => [
                     'class' => 'mb-6',
                 ],
-                'label' => 'Your Full Name',
+                'label' => 'Enter your full name',
                 'label_attr' => [
                     'class' => 'block text-sm font-medium text-gray-700 mb-2',
                 ],
