@@ -18,6 +18,7 @@ use App\Repository\InformationContactRepository;
 use App\Repository\SocialNetworkRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class HomeController extends AbstractController
 {
@@ -30,7 +31,8 @@ final class HomeController extends AbstractController
         private ExperienceRepository $experienceRepository,
         private ParcoursRepository $parcoursRepository,
         private InformationContactRepository $informationContactRepository,
-        private SocialNetworkRepository $socialRepository
+        private SocialNetworkRepository $socialRepository,
+        private TranslatorInterface $translator
     )
     {
         
@@ -53,7 +55,8 @@ final class HomeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($contact);
             $entityManager->flush();
-            $this->addFlash('green', 'Votre message a été envoyé avec succès !');
+            $message = $this->translator->trans('Message sent successfully!');
+            $this->addFlash('green', $message);
             $contact = new Contact(); // Reset the form
             $form = $this->createForm(ContactFormType::class, $contact);
         }
@@ -70,5 +73,12 @@ final class HomeController extends AbstractController
             'socials' => $socials,
             'form' => $form,
         ]);
+    }
+
+    #[Route('/translation/{locale}', name: 'app_translation')]
+    public function translation(string $locale, Request $request, TranslatorInterface $translator): Response
+    {
+       $request->getSession()->set('_locale', $locale);
+        return $this->redirect($request->headers->get('referer') ?? $this->generateUrl('app_home'));
     }
 }

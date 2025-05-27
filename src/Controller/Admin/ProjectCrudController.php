@@ -24,6 +24,8 @@ class ProjectCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
             TextField::new('description'),
+            TextField::new('descriptionEn')->setLabel("Description (EN)"),
+            TextField::new('descriptionFr')->setLabel("Description (FR)"),
             AssociationField::new('outils')->setLabel('Outils'),
             TextField::new('icon')->setLabel('Icone'),
             TextField::new('link')->setLabel('Lien')

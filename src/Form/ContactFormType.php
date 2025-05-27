@@ -21,12 +21,12 @@ class ContactFormType extends AbstractType
                 'row_attr' => [
                     'class' => 'mb-6',
                 ],
-                'label' => 'Nom et prénom',
+                'label' => 'Your Full Name',
                 'label_attr' => [
                     'class' => 'block text-sm font-medium text-gray-700 mb-2',
                 ],
                 'attr' => [
-                    'placeholder' => 'Entrez votre nom et prénom',
+                    'placeholder' => 'Enter your full name',
                     'class' => 'w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
                 ],
             ])
@@ -34,12 +34,12 @@ class ContactFormType extends AbstractType
                 'row_attr' => [
                     'class' => 'mb-6',
                 ],
-                'label' => 'Email',
+                'label' => 'Enter your email',
                 'label_attr' => [
                     'class' => 'block text-sm font-medium text-gray-700 mb-2',
                 ],
                 'attr' => [
-                    'placeholder' => 'Entrez votre adresse email',
+                    'placeholder' => 'Enter your email',
                     'class' => 'w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
                 ],
             ])
@@ -47,12 +47,12 @@ class ContactFormType extends AbstractType
                 'row_attr' => [
                     'class' => 'mb-6',
                 ],
-                'label' => 'Objet',
+                'label' => 'Enter your subject',
                 'label_attr' => [
                     'class' => 'block text-sm font-medium text-gray-700 mb-2',
                 ],
                 'attr' => [
-                    'placeholder' => 'Entrez l\'objet de votre message',
+                    'placeholder' => 'Enter your subject',
                     'class' => 'w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
                 ],
             ])
@@ -63,10 +63,10 @@ class ContactFormType extends AbstractType
                 'label_attr' => [
                     'class' => 'block text-sm font-medium text-gray-700 mb-2',
                 ],
-                'label' => 'Message',
+                'label' => 'Enter your message',
                 'attr' => [
                     'id' => 'message',
-                    'placeholder' => 'Entrez votre message',
+                    'placeholder' => 'Enter your message',
                     'class' => 'w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
                     'rows' => 5,
                 ],

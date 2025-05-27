@@ -22,7 +22,11 @@ class SkillCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
+            TextField::new('nameEn')->setLabel("Nom (EN)"),
+            TextField::new('nameFr')->setLabel("Nom (FR)"),
             TextField::new('description'),
+            TextField::new('descriptionEn')->setLabel("Description (EN)"),
+            TextField::new('descriptionFr')->setLabel("Description (FR)"),
             AssociationField::new('technologies'),
         ];
     }

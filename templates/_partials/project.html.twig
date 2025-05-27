@@ -1,8 +1,8 @@
 <section id="projets" class="py-16 bg-white">
 	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="text-center mb-16">
-			<h2 class="text-3xl font-bold text-gray-800 mb-4">Mes Projets Récents</h2>
-			<p class="text-gray-600 max-w-2xl mx-auto">Découvrez une sélection de mes réalisations les plus marquantes, alliant design et fonctionnalité.</p>
+			<h2 class="text-3xl font-bold text-gray-800 mb-4">{% trans %}My Recent Projects{% endtrans %}</h2>
+			<p class="text-gray-600 max-w-2xl mx-auto">{% trans %}Discover a selection of my most significant achievements, combining design and functionality.{% endtrans %}</p>
 		</div>
 
 		<div
@@ -15,14 +15,14 @@
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">{{project.name}}</h3>
-                            <p class="text-gray-600 mb-4">{{project.description}}</p>
+                            <p class="text-gray-600 mb-4">{{project.getTranslatedDescription(app.request.locale)}}</p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 {% for outil in project.outils %}
                                     <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">{{outil.name}}</span>
                                 {% endfor %}
                             </div>
                             {% if project.link is defined and project.link is not null %}
-                                <a href="{{project.link}}" target="_blank" class="text-blue-500 font-medium hover:text-blue-700">Voir le projet →</a>
+                                <a href="{{project.link}}" target="_blank" class="text-blue-500 font-medium hover:text-blue-700">{% trans %}See the project{% endtrans %} →</a>
                             {% endif %}
                         </div>
                     </div>

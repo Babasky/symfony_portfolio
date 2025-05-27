@@ -21,8 +21,14 @@ class ParcoursCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title'),
+            TextField::new('titleEn', 'Title (EN)'),
+            TextField::new('titleFr', 'Title (FR)'),    
             TextField::new('sub_title'),
+            TextField::new('subTitleEn', 'Sub Title (EN)'),
+            TextField::new('subTitleFr', 'Sub Title (FR)'),
             TextField::new('description'),
+            TextField::new('descriptionEn', 'Description (EN)'),
+            TextField::new('descriptionFr', 'Description (FR)'),
         ];
     }
     

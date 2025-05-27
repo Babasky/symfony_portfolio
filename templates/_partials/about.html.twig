@@ -3,21 +3,21 @@
 		<div class="flex flex-col md:flex-row items-center">
 			<div class="md:w-1/2 mb-10 md:mb-0 animate-fadeIn">
                 {% if about is defined and about is not null %}
-                    <h2 class="text-3xl font-bold text-gray-800 mb-6">{{about.title}}</h2>
-                    <p class="text-gray-600 mb-6">{{about.description}}</p>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">{{about.getTranslatedTitle(app.request.locale)}}</h2>
+                    <p class="text-gray-600 mb-6">{{about.getTranslatedDescription(app.request.locale)}}</p>
                 {% endif %}
                 
 				<div class="space-y-4 mb-8">
                     {% if experiences is defined and experiences is not empty %}
                         {% for experience in experiences %}
-                        <div class="flex items-start">
+                        <div class="flex items-center">
                             <div class="flex-shrink-0 mt-1">
                                 <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                                     <i class="fas fa-check text-blue-500"></i>
                                 </div>
                             </div>
                             <div class="ml-3">
-                                <p class="text-gray-700">{{experience.title}}</p>
+                                <p class="text-gray-700">{{experience.getTranslatedTitle(app.request.locale)}}</p>
                             </div>
                         </div>
                         {% endfor %}
@@ -26,14 +26,14 @@
 				{% if about.cv is defined and about.cv is not empty %}
 					<a href="{{ asset('uploads/cv/' ~ about.cv) }}" target="_blank" class="contact-btn inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-md">
 						<i class="fas fa-download mr-2"></i>
-						Télécharger mon CV
+						{% trans %}Download my CV{% endtrans %}
 					</a>
 				{% endif %}
 				</div>
 
 				<div class="md:w-1/2 md:pl-12 animate-fadeIn" style="animation-delay: 0.3s;">
 					<div class="bg-gray-50 p-8 rounded-lg">
-						<h3 class="text-xl font-semibold text-gray-800 mb-6">Mon Parcours</h3>
+						<h3 class="text-xl font-semibold text-gray-800 mb-6">{% trans %}My Journey{% endtrans %} </h3>
 
 					<div class="space-y-8">
 						{% if parcours is defined and parcours is not empty %}
@@ -45,9 +45,9 @@
 										</div>
 									</div>
 									<div>
-										<h4 class="font-medium text-gray-800">{{item.title}}</h4>
-										<p class="text-sm text-gray-500 mb-1">{{item.subTitle}}</p>
-										<p class="text-gray-600">{{item.description}}</p>
+										<h4 class="font-medium text-gray-800">{{item.getTranslatedTitle(app.request.locale)}}</h4>										
+										<p class="text-sm text-gray-500 mb-1">{{item.getTranslatedSubTitle(app.request.locale)}}</p>
+										<p class="text-gray-600">{{item.getTranslatedDescription(app.request.locale)}}</p>
 									</div>
 								</div>
 							{% endfor %}

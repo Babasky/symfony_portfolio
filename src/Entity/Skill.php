@@ -28,6 +28,18 @@ class Skill
     #[ORM\ManyToMany(targetEntity: Tech::class, inversedBy: 'skills')]
     private Collection $technologies;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $nameEn = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $nameFr = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $descriptionEn = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $descriptionFr = null;
+
     public function __construct()
     {
         $this->technologies = new ArrayCollection();
@@ -91,5 +103,71 @@ class Skill
         $this->technologies->removeElement($technology);
 
         return $this;
+    }
+
+    public function getNameEn(): ?string
+    {
+        return $this->nameEn;
+    }
+
+    public function setNameEn(?string $nameEn): static
+    {
+        $this->nameEn = $nameEn;
+
+        return $this;
+    }
+
+    public function getNameFr(): ?string
+    {
+        return $this->nameFr;
+    }
+
+    public function setNameFr(?string $nameFr): static
+    {
+        $this->nameFr = $nameFr;
+
+        return $this;
+    }
+
+    public function getDescriptionEn(): ?string
+    {
+        return $this->descriptionEn;
+    }
+
+    public function setDescriptionEn(?string $descriptionEn): static
+    {
+        $this->descriptionEn = $descriptionEn;
+
+        return $this;
+    }
+
+    public function getDescriptionFr(): ?string
+    {
+        return $this->descriptionFr;
+    }
+
+    public function setDescriptionFr(?string $descriptionFr): static
+    {
+        $this->descriptionFr = $descriptionFr;
+
+        return $this;
+    }
+
+    public function getTranslatedName(string $locale): ?string
+    {
+        return match ($locale) {
+            'en' => $this->nameEn,
+            'fr' => $this->nameFr,
+            default => $this->name,
+        };
+    }
+
+    public function getTranslatedDescription(string $locale): ?string
+    {
+        return match ($locale) {
+            'en' => $this->descriptionEn,
+            'fr' => $this->descriptionFr,
+            default => $this->description,
+        };
     }
 }

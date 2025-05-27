@@ -1,5 +1,7 @@
 twig:
     file_name_pattern: '*.twig'
+    globals:
+        locales: '%app.locales%' # List of locales supported by the application
 
 when@test:
     twig:

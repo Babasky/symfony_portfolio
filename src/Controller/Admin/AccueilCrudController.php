@@ -21,11 +21,17 @@ class AccueilCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
+            IdField::new('id')->hideOnForm()->hideOnIndex(),
             TextField::new('name')->setLabel("Nom de la personne"),
-            TextField::new('title')->setLabel("Titre de l'emploi"),
+            TextField::new('title')->setLabel("Titre de l'accueil"),
+            TextField::new('titleEn')->setLabel("Titre de l'accueil (EN)"),
+            TextField::new('titleFr')->setLabel("Titre de l'accueil (FR)"),
             TextField::new('sub_title')->setLabel("Sous-titre"),
+            TextField::new('sub_titleEn')->setLabel("Sous-titre (EN)"),
+            TextField::new('sub_titleFr')->setLabel("Sous-titre (FR)"),
             TextField::new('description')->setLabel("Description"),
+            TextField::new('descriptionEn')->setLabel("Description (EN)"),
+            TextField::new('descriptionFr')->setLabel("Description (FR)"),
             ImageField::new('photo')->setLabel("Photo")
             ->setBasePath('uploads/accueil')
             ->setUploadDir('/public/uploads/accueil')

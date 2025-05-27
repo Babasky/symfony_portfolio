@@ -1,8 +1,8 @@
 <section id="competences" class="py-16 bg-gray-50">
 	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="text-center mb-16">
-			<h2 class="text-3xl font-bold text-gray-800 mb-4">Mes Compétences</h2>
-			<p class="text-gray-600 max-w-2xl mx-auto">Un ensemble diversifié de compétences techniques et créatives pour répondre à tous vos besoins numériques.</p>
+			<h2 class="text-3xl font-bold text-gray-800 mb-4">{% trans %}My Skills{% endtrans %}</h2>
+			<p class="text-gray-600 max-w-2xl mx-auto">{% trans %}A diverse set of technical and creative skills to meet all your digital needs.{% endtrans %}</p>
 		</div>
 
 		<div
@@ -13,8 +13,8 @@
                         <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                             <i class="fas fa-code text-blue-500 text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">{{skill.name}}</h3>
-                        <p class="text-gray-600 mb-4">{{skill.description}}</p>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">{{skill.getTranslatedName(app.request.locale)}}</h3>
+                        <p class="text-gray-600 mb-4">{{skill.getTranslatedDescription(app.request.locale)}}</p>
                         <div class="flex flex-wrap gap-2">
                             {% for tech in skill.technologies %}
                                 <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">{{ tech.name }}</span>
@@ -27,7 +27,7 @@
 
 		<!-- Graphique de compétences -->
 		<div class="mt-16 bg-white p-8 rounded-lg shadow-sm animate-fadeIn" style="animation-delay: 0.4s;">
-			<h3 class="text-xl font-semibold text-gray-800 mb-6">Maîtrise des Technologies</h3>
+			<h3 class="text-xl font-semibold text-gray-800 mb-6">{% trans %}Mastery of Technologies{% endtrans %}</h3>
 			<div class="space-y-6">
                 {% if technologies is defined and technologies is not empty %}
                     {% for tech in technologies %}

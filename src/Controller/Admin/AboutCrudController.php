@@ -24,7 +24,11 @@ class AboutCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title'),
+            TextField::new('titleEn')->setLabel("Title (EN)"),
+            TextField::new('titleFr')->setLabel("Title (FR)"),
             TextField::new('description'),
+            TextField::new('descriptionEn')->setLabel("Description (EN)"),
+            TextField::new('descriptionFr')->setLabel("Description (FR)"),
           Field::new('cvFile')
             ->setFormType(VichFileType::class)
             ->setLabel('Curriculum Vitae (PDF)')
