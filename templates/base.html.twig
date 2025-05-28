@@ -3,10 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>
-			{% block title %}Portfolio
-			{% endblock %}
-		</title>
+		<meta name="description" content="Portfolio de Boureima Maïga, développeur web spécialisé en Symfony, PHP, et technologies modernes.">
+		<meta name="keywords" content="Symfony, Développeur Web, PHP, Portfolio, Boureima Maïga, Développement web Mali">
+		<meta name="author" content="Boureima Maïga">
+		<meta property="og:title" content="Boureima Maïga – Développeur Web">
+		<meta property="og:description" content="Découvrez mes projets et compétences en développement web.">
+		<meta property="og:url" content="https://boureimamaiga.up.railway.app">
+		<meta property="og:type" content="website">
+		<meta name="twitter:card" content="summary_large_image">
+		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+		<link rel="manifest" href="/icons/site.webmanifest">
+		<title> Boureima Maïga – Développeur Web</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="{{asset('template/assets/css/style.css')}}">
@@ -16,5 +25,13 @@
 		{% block body %}{% endblock %}
         {% include "_partials/footer.html.twig" %}
         <script src="{{asset('template/assets/js/script.js')}}"></script>
+		<script>
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('/service-worker.js')
+				.then(reg => console.log('Service Worker enregistré.', reg))
+				.catch(err => console.error('Échec Service Worker:', err));
+			}
+		</script>
+
 	</body>
 </html>

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://boureimamaiga.up.railway.app/sitemap.xml
